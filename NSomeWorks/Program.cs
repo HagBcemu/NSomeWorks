@@ -95,7 +95,10 @@ namespace NSomeWorks
             {
                 for (int i = 0; i < array.Length; i++)
                 {
-                    Console.Write(array[i] + " ");
+                    if (array[i] != null)
+                    {
+                        Console.Write(array[i] + " ");
+                    }
                 }
             }
         }
