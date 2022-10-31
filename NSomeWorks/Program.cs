@@ -6,6 +6,8 @@ namespace NSomeWorks
     {
         static void Main(string[] args)
         {
+            ConsoleWriter consoleWriter = new ConsoleWriter();
+            consoleWriter.ShowShop();
         }
     }
 }
