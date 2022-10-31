@@ -4,9 +4,9 @@ namespace NSomeWorks
 {
     class ProcessProduct
     {
-        public static List<Product> GetProducts()
+        public static Product[] GetProductsArray()
         {
-            List<Product> products = new List<Product>
+            Product[] products =
             {
                 new Product("Ноутбук", 10000),
                 new Product("Смартфон", 4000),

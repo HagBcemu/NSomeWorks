@@ -5,7 +5,7 @@ namespace NSomeWorks
 {
     class ShopBasket
     {
-        private List<Product> _products;
+        private Product[] _productsArray;
 
         private int _idShopBasket;
 
@@ -13,7 +13,7 @@ namespace NSomeWorks
 
         public ShopBasket()
         {
-            _products = new List<Product>();
+            _productsArray = new Product[1];
 
             _idShopBasket = new Random().Next(1, 1000000);
 
@@ -22,13 +22,16 @@ namespace NSomeWorks
 
         public void AddProductToBasket(Product product)
         {
-            _products.Add(product);
+            Array.Resize(ref _productsArray, _productsArray.Length + 1);
+
+            _productsArray[_productsArray.Length - 1] = product;
+
             _summPriseBasket += product.Prise;
         }
 
-        public List<Product> GetProductInBasket()
+        public Product[] GetProductInBasket()
         {
-            return _products;
+            return _productsArray;
         }
 
         public int GetSummBasket()

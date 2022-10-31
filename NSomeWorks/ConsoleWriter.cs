@@ -6,13 +6,13 @@ namespace NSomeWorks
 {
     class ConsoleWriter
     {
-        List<Product> _products;
+        Product[] _products;
 
         ShopBasket _shopBasket;
 
         public void ShowShop()
         {
-            _products = ProcessProduct.GetProducts();
+            _products = ProcessProduct.GetProductsArray();
 
             _shopBasket = new ShopBasket();
 
@@ -24,8 +24,8 @@ namespace NSomeWorks
         void ShowProduct()
         {
             Console.Clear();
-            Console.WriteLine("Количество товаров в корзине " + _shopBasket.GetProductInBasket().Count + ". Общая сумма в корзине " + _shopBasket.GetSummBasket() + "\n");
-            for (int i = 0; i < _products.Count; i++)
+            Console.WriteLine("Количество товаров в корзине " + (_shopBasket.GetProductInBasket().Length - 1) + ". Общая сумма в корзине " + _shopBasket.GetSummBasket() + "\n");
+            for (int i = 0; i < _products.Length; i++)
             {
                 Console.WriteLine(i + ".) " + _products[i].Name + " цена: " + _products[i].Prise);
             }
@@ -40,11 +40,11 @@ namespace NSomeWorks
             Console.Clear();
             Console.WriteLine("Добро пожаловать в корзину\n Вы выбрали такой товар");
             Console.WriteLine("Общая сумма в корзине " + _shopBasket.GetSummBasket() + "\n");
-            List<Product> productsChose = _shopBasket.GetProductInBasket();
+            Product[] productsChose = _shopBasket.GetProductInBasket();
 
-            for (int i = 1; i < productsChose.Count + 1; i++)
+            for (int i = 1; i < productsChose.Length; i++)
             {
-                Console.WriteLine(i + ".) " + productsChose[i - 1].Name + " цена: " + productsChose[i - 1].Prise);
+                Console.WriteLine(i + ".) " + productsChose[i].Name + " цена: " + productsChose[i].Prise);
             }
         }
 
@@ -57,7 +57,7 @@ namespace NSomeWorks
                 bool succesParseNumber = int.TryParse(consoleWrite, out numberChose);
                 if (succesParseNumber)
                 {
-                    if (numberChose < _products.Count)
+                    if (numberChose < _products.Length)
                     {
                         _shopBasket.AddProductToBasket(_products[numberChose]);
                         Console.Clear();
