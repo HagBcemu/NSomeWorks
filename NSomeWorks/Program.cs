@@ -6,7 +6,6 @@ namespace NSomeWorks
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello Master");
         }
     }
 }
