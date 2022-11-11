@@ -13,18 +13,18 @@ namespace NSomeWorks
             return result;
         }
 
-        public Result SkipedMethod()
+        public BusinessException SkipedMethod()
         {
-            Result result = new Result("Skipped logic in method: SkipedMethod()", TypeLog.Warning, true);
+            BusinessException businessException = new BusinessException("Skipped logic in method");
 
-            return result;
+            // Result result = new Result("Skipped logic in method: SkipedMethod()", TypeLog.Warning, true);
+            return businessException;
         }
 
         public Result ErrorMethod()
         {
             Result result = new Result("I broke a logic", TypeLog.Error, false);
-
-            return result;
+            throw new Exception("I broke a logic");
         }
     }
 }
