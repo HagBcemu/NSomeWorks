@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace NSomeWorks
 {
@@ -6,7 +7,8 @@ namespace NSomeWorks
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello Master");
+            ConsoleWriter consoleWriter = new ConsoleWriter();
+            consoleWriter.ShowConsole();
         }
     }
 }
