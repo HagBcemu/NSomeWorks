@@ -7,41 +7,38 @@ namespace NSomeWorks
 {
     class Starter
     {
-        Logger _logger;
-
         Result _result;
         public void Run()
         {
+            Actions actions = new Actions();
             for (int i = 0; i < 100; i++)
             {
-                Actions actions = new Actions();
-                switch (new Random().Next(1, 4))
+                try
                 {
-                    case 1:
-                        _result = actions.StartMethod();
-                        break;
-                    case 2:
-                        _result = actions.SkipedMethod();
-                        break;
-                    case 3:
-                        _result = actions.ErrorMethod();
-                        break;
+                    switch (new Random().Next(1, 4))
+                    {
+                        case 1:
+                            _result = actions.StartMethod();
+                            Logger.GetLogger().WriteLog(_result);
+                            break;
+                        case 2:
+                            var businessException = actions.SkipedMethod();
+                            Result result = new Result(businessException.Message, TypeLog.Warning, true);
+                            Logger.GetLogger().WriteLog(result);
+                            break;
+                        case 3:
+                            _result = actions.ErrorMethod();
+                            break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Result result = new Result(ex.Message, TypeLog.Error, false);
+                    Logger.GetLogger().WriteLog(result);
                 }
 
-                _logger = Logger.GetLogger();
-                if (_result.Status == false)
-                {
-                    _logger.ErorLog(_result);
-                }
-                else
-                {
-                    _logger.WriteLogInConsole(_result);
-                }
-
-                Thread.Sleep(100);
+                Thread.Sleep(50);
             }
-
-            _logger.WriteLogInFile();
         }
     }
 }

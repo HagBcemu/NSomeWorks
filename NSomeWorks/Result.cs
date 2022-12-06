@@ -40,11 +40,5 @@ namespace NSomeWorks
         {
             get { return _textLog; }
         }
-
-        // public bool Status
-        // {
-        //    get { return _status; }
-        //    set { _status = value; }
-        // }
     }
 }

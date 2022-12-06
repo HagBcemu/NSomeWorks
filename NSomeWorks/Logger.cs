@@ -6,11 +6,11 @@ namespace NSomeWorks
     class Logger
     {
         private static Logger _logger;
-
-        private string _logText;
+        private FileService _fileService;
 
         private Logger()
         {
+            _fileService = new FileService();
         }
 
         public static Logger GetLogger()
@@ -23,22 +23,11 @@ namespace NSomeWorks
             return _logger;
         }
 
-        public void WriteLogInConsole(Result result)
+        public void WriteLog(Result result)
         {
-            string addStringToLog = DateTime.Now + ": " + result.TypeLog + ": " + result.TextLog;
-            _logText += "\n" + addStringToLog;
-        }
-
-        public void ErorLog(Result result)
-        {
-            string addStringToLog = "Action failed by а reason: " + result.TextLog;
-            _logText += "\n" + addStringToLog;
-            Console.WriteLine(addStringToLog);
-        }
-
-        public void WriteLogInFile()
-        {
-            File.WriteAllLines("log.txt", _logText.Split('\n'));
+            string textToLog = DateTime.Now + ": " + result.TypeLog + ": " + result.TextLog;
+            Console.WriteLine(textToLog);
+            _fileService.WriteToFile(textToLog);
         }
     }
 }
