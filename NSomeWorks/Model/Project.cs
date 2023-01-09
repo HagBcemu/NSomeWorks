@@ -16,6 +16,10 @@ namespace NSomeWorks
 
         public DateTime StartedDate { get; set; }
 
+        public int ClientID { get; set; }
+
+        public Client Client { get; set; }
+
         public List<EmployeeProject> EmployeeProject { get; set; } = new List<EmployeeProject>();
     }
 }
