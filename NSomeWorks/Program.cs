@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace NSomeWorks
 {
@@ -6,7 +7,12 @@ namespace NSomeWorks
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello Master");
+            Logger logger = new Logger();
+            Starter starter = new Starter();
+            Task task1 = Task.Run(async () => await starter.Run());
+            Task task2 = Task.Run(async () => await starter.Run());
+            Task.WaitAll(task1, task2);
+            Console.ReadKey();
         }
     }
 }
