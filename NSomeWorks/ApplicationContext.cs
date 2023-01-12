@@ -26,6 +26,8 @@ namespace NSomeWorks
         public DbSet<Project> Projects { get; set; }
 
         public DbSet<Title> Titles { get; set; }
+
+        public DbSet<Client> Clients { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new EmloyeeProjectConfiguration());
@@ -33,6 +35,7 @@ namespace NSomeWorks
             modelBuilder.ApplyConfiguration(new OfficeConfiguration());
             modelBuilder.ApplyConfiguration(new ProjectConfiguration());
             modelBuilder.ApplyConfiguration(new TitleConfiguration());
+            modelBuilder.ApplyConfiguration(new ClientConfiguration());
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

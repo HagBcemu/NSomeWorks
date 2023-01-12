@@ -21,19 +21,18 @@ namespace NSomeWorks
                .UseSqlServer(connectionString)
               .Options;
 
-            Console.WriteLine("Все работники в БД: \n");
+            Console.WriteLine("Все клиенты в БД: \n");
             using (ApplicationContext db = new ApplicationContext(options))
             {
-                var employees = db.Employees.ToList();
-                foreach (Employee employee in employees)
+                var clients = db.Clients.ToList();
+                foreach (Client client in clients)
                 {
-                    Console.WriteLine("TitleId " + employee.TitleId);
-                    Console.WriteLine("FirstName " + employee.FirstName);
-                    Console.WriteLine("LastName " + employee.LastName);
-                    Console.WriteLine("HiredDate " + employee.HiredDate);
-                    Console.WriteLine("DateOfBirth " + employee.DateOfBirth);
-                    Console.WriteLine("OfficeId " + employee.OfficeId);
-                    Console.WriteLine("TitleId " + employee.TitleId);
+                    Console.WriteLine("\nTitleId: " + client.ClientId);
+                    Console.WriteLine("FirstName: " + client.FirstName);
+                    Console.WriteLine("LastName: " + client.LastName);
+                    Console.WriteLine("NameCompany: " + client.NameCompany);
+                    Console.WriteLine("Email: " + client.Email);
+                    Console.WriteLine("PhoneNumber: " + client.PhoneNumber);
                 }
             }
 
