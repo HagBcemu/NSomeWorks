@@ -18,6 +18,6 @@ namespace NSomeWorks
 
         public string PhoneNumber { get; set; }
 
-        public List<Project> Projects { get; set; } = new List<Project>();
+        public virtual List<Project> Projects { get; set; } = new List<Project>();
     }
 }
