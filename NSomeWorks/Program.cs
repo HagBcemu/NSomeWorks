@@ -6,7 +6,9 @@ namespace NSomeWorks
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello Master");
+            QueryesLINQ queryesLINQ = new QueryesLINQ();
+            queryesLINQ.Run();
+            Console.ReadKey();
         }
     }
 }
