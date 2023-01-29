@@ -22,8 +22,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="C:\Users\Vlad\Desktop\NetCore\eShop-Sample2\eShop-Sample2\Catalog\Catalog.Host\Catalog.Host.csproj" />
-  </ItemGroup>
-
 </Project>
