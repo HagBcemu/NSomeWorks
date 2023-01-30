@@ -4,7 +4,7 @@ services:
   catalog.api:
     build:
       context: .
-      dockerfile: Catalog/Catalog.Host/Dockerfile
+      dockerfile: Catalog.Host/Dockerfile
     environment:
        - ASPNETCORE_ENVIRONMENT=Development
        - ASPNETCORE_URLS=http://+:5000
